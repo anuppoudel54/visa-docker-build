@@ -1,0 +1,64 @@
+{% extends 'base.html'%}
+{% load static  %}
+   	
+{%block content %}
+{%if visa_top.image%}
+  <div class="theme-inner-banner section-spacing" style="background: url({{visa_top.image.url}}) no-repeat center center;   background-attachment: fixed; background-size: cover; background-color: #707d9e;">
+{%else%}
+  <div class="theme-inner-banner section-spacing" style="background: url({{topImage.image.url}}) no-repeat center center;   background-attachment: fixed; background-size: cover; background-color: #707d9e;">
+{%endif%}
+            <div class="overlay">
+                <div class="container">
+                    <h1>&nbsp</h1>
+                    <h1>&nbsp</h1>
+                <a href="https://visaalliance.mmportal.cloud/assessment"><h2>{{visa_top.title}}</h2></a>	
+                <h1>&nbsp</h1>
+                <h1>&nbsp</h1>
+                </div> <!-- /.container -->
+            </div> <!-- /.overlay -->
+        </div> <!-- /.theme-inner-banner -->
+
+        {%for description in descriptions%}
+           
+                <div class="container">
+                    <h4 style="text-align: center;">{{description.description}}</h4>
+
+                </div>
+            
+        {%endfor%}
+        <div class="our-team section-spacing" style="background: linear-gradient(to right, #fcab6d, #ff2961);">
+            <div class="container">
+                <div class="wrapper">
+                    <div class="row">
+                        {%for visa_cat in visa_cats%}
+                            <div class="col-lg-4 col-sm-6 col-12">
+                                <div class="team-member">
+                                    <a href="{{visa_cat.get_url}}">
+                                        <div class="image-box">
+                                            <img src="{{visa_cat.visa_image.url}}" alt="" style="height: 15rem;">
+                                            <div class="overlay">
+                                                <div class="hover-content">
+                                                    
+                                                    <p>{{visa_cat.hover_description}}</p>
+                                                </div> <!-- /.hover-content -->
+                                            </div> <!-- /.overlay -->
+                                        </div> <!-- /.image-box -->
+                                        <div class="text" style="border:none;">
+                                            <h6>{{visa_cat.visa_title}}</h6>
+                                            
+                                        </div>
+                                    </a>
+                                    <!-- /.text -->
+                                </div> <!-- /.team-member -->
+                            </div> <!-- /.col- -->
+                        {%endfor%}
+                  
+                    </div> <!-- /.row -->
+                </div> <!-- /.wrapper -->
+            </div> <!-- /.container -->
+        </div> <!-- /.our-team -->
+       
+{%endblock%}
+
+    
+    

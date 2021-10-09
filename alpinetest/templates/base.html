@@ -1,0 +1,106 @@
+{% load static  %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<!-- For IE -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- For Resposive Device -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- For Window Tab Color -->
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#061948">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#061948">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#061948">
+	<title>Visa Alliance</title>
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" sizes="56x56" href="{%static 'images/VisaLogo/logo-.ico'%}">
+	<!-- Main style sheet -->
+	<link rel="stylesheet" type="text/css" href="{%static 'css/style.css'%}">
+  <!-- <link rel="stylesheet" type="text/css" href="{%static 'css/responsive.css'%}"> -->
+	<!-- responsive style sheet -->
+	<!-- <link rel="stylesheet" type="text/css" href="{%static 'css/responsive.css'%}"> -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+
+	<script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"></script>
+
+	<script id="anz-snippet" src="https://searchmyanzsco.com.au/js/anzsco_widget.js?key=WUpfB3O0rug="> </script>
+	<!-- End of  SM-ANZSCO Widget script -->
+	<link href="https://fonts.googleapis.com/css2?family=Amiri&family=Dancing+Script&display=swap" rel="stylesheet">
+
+	<!-- Start of SM-ANZSCO Widget script -->
+	<script id="anz-snippet" src="https://searchmyanzsco.com.au/js/anzsco_widget.js?key=WUpfB3O0rug="> </script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- End of  SM-ANZSCO Widget script -->
+
+</head>
+
+<body>
+	<!-- Messenger Chat Plugin Code -->
+	<div id="fb-root"></div>
+
+	<!-- Your Chat Plugin code -->
+	<div id="fb-customer-chat" class="fb-customerchat">
+	</div>
+
+	<script>
+	var chatbox = document.getElementById('fb-customer-chat');
+	chatbox.setAttribute("page_id", "102760968613609");
+	chatbox.setAttribute("attribution", "biz_inbox");
+
+	window.fbAsyncInit = function() {
+		FB.init({
+		xfbml            : true,
+		version          : 'v11.0'
+		});
+	};
+
+	(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = 'https://connect.facebook.net/en_GB/sdk/xfbml.customerchat.js';
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+	</script>
+
+{%include 'includes/nav.html'%}
+
+
+{%block content%} {%endblock%}
+        
+{%include 'includes/footer.html'%}
+            
+    
+    
+    <!-- Optional JavaScript _____________________________  -->
+    
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- jQuery -->
+    <script src="{% static 'vendor/jquery.2.2.3.min.js'%}"></script>
+	<script src="{%static 'vendor/popper.js/popper.min.js'%}"></script>
+    <!-- Bootstrap JS -->
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js'%}"></script>
+    <!-- Camera Slider -->
+    <script src="{% static 'vendor/Camera-master/scripts/jquery.mobile.customized.min.js'%}"></script>
+    <script src="{% static 'vendor/Camera-master/scripts/jquery.easing.1.3.js'%}"></script>
+    <script src="{% static 'vendor/Camera-master/scripts/camera.min.js'%}"></script>
+    <!-- menu  -->
+    <script src="{% static 'vendor/menu/src/js/jquery.slimmenu.js' %}"></script>
+    <!-- WOW js -->
+    <script src="{% static 'vendor/WOW-master/dist/wow.min.js'%}"></script>
+    <!-- owl.carousel -->
+    <script src="{% static 'vendor/owl-carousel/owl.carousel.min.js'%}"></script>
+    <!-- Theme js -->
+    <script src="{% static 'js/theme.js'%}"></script>
+    
+    <script>
+        
+    </script>
+    </div> <!-- /.main-page-wrapper -->
+    </body>
+    
+    </html>

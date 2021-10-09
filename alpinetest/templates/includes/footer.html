@@ -1,0 +1,191 @@
+{% load static %}
+
+
+<div class="consultation-form section-spacing">
+    <div class="container">
+        <div class="theme-title-one">
+            <h2>{{navFooter.footer_consultation_title}}</h2>
+            <p>{{navFooter.footer_consultation_title_description}}
+            </p>
+        </div> <!-- /.theme-title-one -->
+        <div class="clearfix main-content no-gutters row">
+            <div class="col-xl-6 col-lg-5 col-12">
+                <div class="img-box" style="background: url({{navFooter.footer_consultation_image.url}}) no-repeat center;background-size: cover;"></div>
+            </div>
+            <div class="col-xl-6 col-lg-7 col-12">
+                <a class="theme-button-one" style="margin-top: 250px; margin-left: 100px;"
+                    href="{{navFooter.footer_consultation_hyperlink}}" target="_blank">{{navFooter.footer_consultation_button_name}}</a>
+            </div> <!-- /.form-wrapper -->
+        </div> <!-- /.col- -->
+    </div> <!-- /.main-content -->
+</div> <!-- /.container -->
+</div> <!-- /.consultation-form -->
+
+
+<!--
+    =====================================================
+        Partner Slider
+    =====================================================
+    -->
+<div class="partner-section bg-color">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-4 col-12">
+              
+                <h6>{{navFooter.footer_accreditations_memberships_title}}</h6>
+            
+            </div>
+            <div class="col-md-9 col-sm-8 col-12">
+                <div class="partner-slider">
+                    {%for image in images%}
+                        <div class="item" style="margin-right: 20px; margin-left: 20px;" ><img src="{{image.image.url}}" alt=""></div>
+                    {%endfor%}
+                    <!-- <div class="item" ><img src="images/core/mia.png"
+                            alt=""></div>
+                    <div class="item" style="margin-right: 20px; margin-left: 20px;"><img src="images/core/mma.png"
+                            alt=""></div> -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer class="theme-footer-one">
+    <div class="top-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-lg-4 col-sm-6 about-widget">
+                   
+                    <h6 class="title">{{navFooter.footer_legal_title}}</h6>
+               
+
+                    {%for legal in legalcontains%}
+                        <a href="{{legal.legal_title_hyperlink}}"
+                            style="color: white;">{{legal.legal_title}}</a>
+                        <hr>
+                    {%endfor%}
+                    <!-- <a href="https://www.mara.gov.au/tools-for-agents-subsite/Files/code-of-conduct.pdf"
+                        style="color: white;">Code of Conduct for Registered Migration Agents</a>
+                    <hr>
+                    <a href="https://www.mara.gov.au/get-help-visa-subsite/FIles/Consumer%20guide%20March%202021.pdf"
+                        style="color: white;">Consumer Guide</a> -->
+                    <!-- <div class="queries"><i class="flaticon-phone-call"></i> Legal <a href="#">+61 2 8957 0827</a></div> -->
+                </div> <!-- /.about-widget -->
+                <div class="col-xl-4 col-lg-3 col-sm-6 footer-recent-post">
+                  
+                    <img src="{{navFooter.footer_australia_flag.url}}" style="height:2rem; float: center;">
+                    
+                    <h6 class="title">{{navFooter.footer_australia_headoffice_title}}</h6>
+                    <ul>
+                        <li class="clearfix">
+
+                            <div class="post float-left">
+                                <a href="#">Address: </a>
+                                <div class="date"><i class="icon flaticon-placeholder"></i> {{navFooter.footer_australia_address}}</div>
+                        </li>
+                        <li class="clearfix">
+
+                            <div class="post float-left">
+                                <a href="#">Connect With Us:</a>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-2 col-sm-2">
+                                            <a href="{{navFooter.footer_australia_facebook_link}}">
+                                                <h3 style="color:white;"><i class="fab fa-facebook"></i></h3>
+                                            </a>
+
+                                        </div>
+                                        <div class="col-lg-2 col-sm-2">
+                                            <a href="{{navFooter.footer_australia_instagram_link}}">
+                                                <h3 style="color:white;"><i class="fab fa-instagram"></i></h3>
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+
+
+
+                            </div>
+                        </li>
+                    </ul>
+                </div> <!-- /.footer-recent-post -->
+                <div class="col-xl-4 col-lg-3 col-sm-6 footer-recent-post">
+                    <img src="{{navFooter.footer_nepali_flag.url}}" alt="" style="height: 2rem;">
+                    <h6 class="title">{{navFooter.footer_nepal_headoffice_title}}</h6>
+
+                    <ul>
+
+                        <li class="clearfix">
+
+                            <div class="post float-left">
+                                <a href="blog-details.html">Address: </a>
+                                <div class="date"><i class="icon flaticon-placeholder"></i>{{navFooter.footer_nepali_address}}</div>
+                            </div>
+                        </li>
+                        <li class="clearfix">
+
+                            <div class="post float-left">
+                                <a href="#">Connect With Us:</a>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-2 col-sm-2">
+                                            <a href="{{navFooter.footer_nepali_facebook_link}}">
+                                                <h3 style="color:white;"><i class="fab fa-facebook"></i></h3>
+                                            </a>
+
+                                        </div>
+                                        <div class="col-lg-2 col-sm-2">
+                                            <a href="{{navFooter.footer_nepali_instagram_link}}">
+                                                <h3 style="color:white;"><i class="fab fa-instagram"></i></h3>
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+
+
+
+                            </div>
+                        </li>
+                    </ul>
+                </div> <!-- /.footer-list -->
+               
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /.top-footer -->
+    <div class="bottom-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-12">
+                    <p>&copy; Copyrights {{year}}. <a href="http://www.paailatechnology.com/" style="color: #9ca6bf;">{{company_name.name}}</a>. </p>
+                </div>
+                <div class="col-md-6 col-12">
+                    <ul>
+                        <li><a href="{%url 'about'%}">About us</a></li>
+                                    <li><a href="{%url 'blog'%}">Blogs</a></li>
+                      
+                        <li><a href="https://visa-alliance.square.site/">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div> <!-- /.bottom-footer -->
+</footer> <!-- /.theme-footer -->
+
+
+
+
+<!-- Scroll Top Button -->
+<button class="scroll-top tran3s">
+    <i class="fa fa-angle-up" aria-hidden="true"></i>
+</button>
+

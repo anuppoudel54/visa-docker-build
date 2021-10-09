@@ -1,0 +1,163 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{%block content %}
+{%if visa_description.top_image%}
+  <div class="theme-inner-banner section-spacing" style="background: url({{visa_description.top_image.url}}) no-repeat center center;   background-attachment: fixed; background-size: cover; background-color: #707d9e;">
+{%else%}
+  <div class="theme-inner-banner section-spacing" style="background: url({{topImage.image.url}}) no-repeat center center;   background-attachment: fixed; background-size: cover; background-color: #707d9e;">
+{%endif%}
+  <div class="overlay">
+    <div class="container">
+      
+    
+     
+      <h2>&nbsp</h2>
+      <h2>&nbsp</h2>
+      <h2>&nbsp</h2>
+      <h2>{{visa_description.top_image_description}}</h2>
+      <h2>&nbsp</h2>
+      <h2>&nbsp</h2>
+    </div> <!-- /.container -->
+  </div> <!-- /.overlay -->
+</div> <!-- /.theme-inner-banner -->
+
+<div class="container" style="margin-bottom: 20px;">
+  <p>{{visa_description.description|safe}}</p>
+</div>
+
+
+<div class="service-details section-spacing">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-12">
+        <div class="service-content">
+         
+          {%if visa_description.image%}
+          <img src="{{visa_description.image.url}}" alt="" class="cover-img">
+          {%else%}
+          <img src="{{visas.visa_image.url}}" alt="" class="cover-img">
+          {%endif%}
+
+
+          {%for single_visa in single_visas%}
+   
+          {%if single_visa.are_you_including_name_of_sub_visa_first_time%}
+              <div class="service-details section-spacing">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-12">
+                      <div class="service-content">
+                        <br><br><br>
+                            <hr style="height: 5px;width: 50%; background: linear-gradient(to right, #fcab6d, #ff2961);">
+                            <br><br><br>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <h3 class="main-title">{{single_visa.sub_visa_title.sub_visa_title}}</h3>
+              {{single_visa.sub_visa_title.subvisa_body|safe}}
+          {%endif%}
+
+
+
+
+          <h4 style="color:crimson; text-align: center;">{{single_visa.type_sub_visa_title}}</h4>
+          {{single_visa.type_of_subvisa_body | safe}}
+          <div class="row" style="margin-top: 50px; ">
+            <div class="col-md-4 col-12">
+              <center>
+                <h1 ><i class="{{single_visa.font_awesome_class_name1}}"
+                  style="color: #ff2961"></i></h1>
+              <h1>{{single_visa.first_field1}}</h1>
+              <h4>{{single_visa.second_field1}}</h4>
+              </center>
+              
+              
+              <p>{{single_visa.third_field1|safe}}</p>
+
+
+            </div>
+            <div class="col-md-4 col-12">
+              <center>
+                <h1 ><i class="{{single_visa.font_awesome_class_name2}}"
+                  style="color: #ff2961"></i></h1>
+               
+              <h1>{{single_visa.first_field2}}</h1>
+              <h4>{{single_visa.second_field2}}</h4>
+            </center>
+              
+              <p>{{single_visa.third_field2|safe}}</p>
+
+
+            </div>
+            <div class="col-md-4 col-12">
+              <center>
+                <h1 ><i class="{{single_visa.font_awesome_class_name3}}"
+                  style="color: #ff2961"></i></h1>
+               
+              <h1>{{single_visa.first_field3}}</h1>
+              <h4>{{single_visa.second_field3}}</h4>
+            </center>
+              
+              <p>{{single_visa.third_field3|safe}}</p>
+
+
+            </div>
+
+
+          </div>
+          {%if existed%}
+            <br>
+            <div class="topics">
+              <div class="accordion-one">
+                <div class="panel-group theme-accordion" id="accordion">
+                
+                  {%for use in usefull%}
+                    {%if single_visa.sub_visa_title.sub_visa_title == use.subvisa.sub_visa_title%}
+                      <h4 class="sub-heading">{{use.heading}}</h4>
+
+                        <div class="panel">
+                          <div class="panel-heading">
+                            <h6 class="panel-title">
+                              <a data-toggle="collapse" data-parent="#accordion" href="#{{use.questionId}}">
+                              {{use.question}}</a>
+                            </h6>
+                          </div>
+                          <div id="{{use.questionId}}" class="panel-collapse collapse">
+                            <div class="panel-body">
+                              {{use.answer|safe}}
+                            </div>
+                          </div>
+                        </div> <!-- /panel 1 -->
+                        
+                      {%endif%}
+                    {%endfor%}
+                
+                </div> <!-- end #accordion -->
+              </div> <!-- End of .accordion-one -->
+            </div> <!-- /.topics -->
+          {%endif%}
+          {%endfor%}
+
+
+          
+        </div> <!-- /.presentation-section -->
+
+
+      </div> <!-- /.service-content -->
+    </div><!-- /.col- -->
+  </div> <!-- /.row -->
+</div> <!-- /.container -->
+</div> <!-- /.service-details -->
+
+
+
+
+
+
+
+
+{%endblock%}

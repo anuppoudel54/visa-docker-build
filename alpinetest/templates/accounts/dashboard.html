@@ -1,0 +1,62 @@
+{%extends 'base.html'%}
+
+
+{%block content%}
+
+
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-content padding-y bg" style="margin-top: 100px;">
+
+ {% include 'includes/alerts.html' %}
+    
+        <!-- <aside > -->
+            <!--   SIDEBAR   -->
+<div class="container">
+    <div class="row">
+        <nav class="col-5" >
+            <center >
+                {% include 'includes/dashboard_sidebar.html' %}
+            </center>
+            
+        </nav>
+    
+    
+    <br><br>
+         
+    
+        <main class="col-md-7" style="margin-bottom: 50px;">
+            <article class="card">
+            <header class="card-header">
+                <strong class="d-inline-block mr-3">Logged in as: </strong>
+                <span>{{user.full_name}}</span>
+            </header>
+            <div class="card-body">
+                
+                    <div class="col-md-12">
+                        <div class="card" style="text-align: center;">
+                            <div class="card-body">
+                                <center>
+                                    <img src="{{imgurl}}" alt="" style="height: 50px; width: 50px; border-radius: 50%;">
+                                    <p>{{user.email}}</p>
+                                    <p>{{user.username}}</p>
+                                </center>
+                                
+                            </div>
+                        </div>
+    
+                </div> 
+            </div> 
+          
+            </article> 
+        </main>
+    
+    </div>
+</div>
+    
+
+
+    </section>
+    <!-- ========================= SECTION CONTENT END// ========================= -->
+
+
+{%endblock%}

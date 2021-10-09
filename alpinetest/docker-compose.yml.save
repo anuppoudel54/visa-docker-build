@@ -1,0 +1,34 @@
+version: "3.1"
+
+services:
+  web:
+    build: .
+    command: gunicorn --workers=3  visaAlliance2phase.wsgi:application --bind 0.0.0.0:8080
+    ports:
+      - 8080:8080
+    volumes:
+      - ../persist/static/:/visaAlliance2phase/static/
+      - ../persist/media/:/visaAlliance2phase/media/
+      - ../persist/v2pstatic/:/visaAlliance2phase/visaAlliance2phase/static/
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13.0-alpine
+    expose:
+      - 5432
+    environment:
+      - POSTGRES_USER=visa_aa
+      - POSTGRES_PASSWORD=visa@123
+      - POSTGRES_DB=visa
+    volumes:
+      - db-data:/var/lib/postgresql/data/
+    
+
+  nginx:
+
+volumes:
+  db-data:
+
+
+

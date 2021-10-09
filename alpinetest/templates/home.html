@@ -1,0 +1,249 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block content%}
+	<div class="first-one">
+		<div id="theme-main-banner" class="banner-one">
+            {%for slide_image in slide_images%}
+				<div data-src="{{slide_image.image.url}}">
+					{% if slide_image.is_qr %}
+						<div class="camera_caption">
+							<div class="container">
+								<div class="row">
+									<div class="col-lg-6 col-sm-12 first-slide">
+
+										<h3 class="wow fadeInUp animated">{{slide_image.description_1}}</h3>
+										<h1 class="wow fadeInUp animated" data-wow-delay="0.2s">{{slide_image.description_2}}</h1>
+										<h3> {{slide_image.description_3}}</h3>
+										<a href="{{slide_image.button_hyperlink}}"
+											class="theme-button-one wow fadeInUp animated" data-wow-delay="0.39s"
+											target="_blank">{{slide_image.button_name}}</a>
+									</div>
+									<div class="col-lg-6 qr">
+										<img src="{{slide_image.qr_code.url}}" alt="" style="height: 10rem;">
+									</div>
+
+								</div>
+
+							</div>
+						</div>
+					{% endif %}
+				</div>
+		    {%endfor%}
+			
+		</div>
+
+	</div>
+	<div>
+		
+		<div class="second-slider" style="background-image: url({{mobiles.image.url}}); ">
+			
+				<a href="{{mobiles.occupation_button_hyperlink}}" class="mobileSearch" style="left: -83px;" target="_blank">{{mobiles.occupation_button_name}}</a>
+		
+			
+				<p style="color: black;">&nbsp</p>
+				<p style="color: black;">&nbsp</p>
+				<p style="color: black;">&nbsp</p>
+				<p style="color: black;">&nbsp</p>
+				<h6 style="color: white; text-shadow: 2px 2px 4px black; margin-left:2px;">{{mobiles.description_1}}</h6>
+				<h1 class="wow fadeInUp animated" data-wow-delay="0.2s"
+					style="color: white; text-shadow: 2px 2px 4px black; margin-left:2px;">{{mobiles.description_2}}
+				</h1> 
+        
+            <center>
+				<a href="{{mobiles.contact_button_hyperlink}}"
+				class="theme-button-one wow fadeInUp animated" data-wow-delay="0.39s" target="_blank">{{mobiles.contact_button_name}}</a>
+			</center>
+			
+		</div>
+		
+	</div>
+
+
+
+	<div class="top-feature section-spacing" style="margin-top: 100px;">
+		<div class="container">
+			{%for migration in migrations%}
+				<h4 style="color:rebeccapurple; text-align: center;">{{migration.title}}</h4>
+				<h2 style=" text-align: center;">{{migration.heading}}</h2>
+				<h4 style=" text-align: center;">{{migration.sub_heading}}</h4>
+				<br>
+				<p style="font-family: 'Syne Mono';">{{migration.description}}</p>
+        	{%endfor%}
+		</div>
+		<br>
+		<div class="top-features-slide">
+			{%for migration in migrationimages%}
+				<div class="item">
+					<div class="main-content" style="background:#fafafa;">
+					<a href="{{migration.hyperlink}}"><img src="{{migration.image.url}}" alt="" class="stress-feature">
+						<h6><a href="{{migration.hyperlink}}" style="color:red;">{{migration.title}}</a> </h6></a>	
+						<h4>{{migration.heading}}</h4>
+
+						<p style="text-align: left;">{{migration.description}}</p>
+					</div>
+				</div>
+			{%endfor%}
+
+			
+		
+		</div>
+	</div>
+
+
+
+	<div class="about-compnay section-spacing">
+		<div class="container">
+			<div class="row">
+				{%for about in abouts%}
+               	 	<div class="col-lg-6 col-12"><img src="{{about.logo.url}}" alt="">
+            	{%endfor%}
+					<div class="full-screen-mission">
+						<ul class="mission-goal clearfix">
+							{%for mission in missions%}
+								<li>
+									<i class="icon flaticon-medal"></i>
+									<h5>Missions</h5>
+									<p style="text-align: center;">{{mission.mission}}</p>
+								</li>
+								<li>
+									<i class="icon flaticon-star"></i>
+									<h5>Vision</h5>
+									<p style="text-align: center;">{{mission.vision}}</p>
+								</li>
+
+								<li>
+									<i class="icon flaticon-target"></i>
+									<h5>Value</h5>
+									<p style="text-align: center;">{{mission.value}}
+									</p>
+								</li>
+                        	{%endfor%}
+						</ul>
+					</div>
+					<!-- /.mission-goal -->
+				</div>
+
+				<div class="col-lg-6 col-12">
+					<div class="text">
+						<div class="theme-title-one">
+							{%for about in abouts%}
+								<h2>{{about.title}}</h2>
+							{%endfor%}
+							{%for about_answer in about_answers%}
+								{%if about_answer.want_print_question %}
+									<h3>{{about_answer.question_category.question}}</h3>
+                                {%endif%}
+								<p>{{about_answer.answer}}</p>
+								<br>
+							{%endfor%}
+						
+							<div class="half-screen-mission">
+								<ul class="mission-goal clearfix ">
+									{%for mission in missions%}
+										<li>
+											<i class="icon flaticon-medal"></i>
+											<h5>Missions</h5>
+											<p style="text-align: center;">{{mission.mission}}</p>
+										</li>
+										<li>
+											<i class="icon flaticon-star"></i>
+											<h5>Vision</h5>
+											<p style="text-align: center;">{{mission.vision}}</p>
+										</li>
+
+										<li>
+											<i class="icon flaticon-target"></i>
+											<h5>Value</h5>
+											<p style="text-align: center;">{{mission.value}}
+											</p>
+										</li>
+                        			{%endfor%}
+								</ul>
+							</div>
+
+						</div> <!-- /.theme-title-one -->
+
+					</div> <!-- /.text -->
+				</div> <!-- /.col- -->
+			</div> <!-- /.row -->
+		</div> <!-- /.container -->
+	</div> <!-- /.about-compnay -->
+
+	{%for follow_dream in follow_dreams%}
+	<div class="feature-banner section-spacing" style="background: url({{follow_dream.background_image.url}}) no-repeat center center;  background-size: cover; background-attachment: fixed; background-color: #707d9e; text-align: center;">
+		<div class="opacity">
+			<div class="container">
+				
+					<h2>{{follow_dream.title}}</h2>
+					
+					<a href="{{follow_dream.button_hyperlink}}"
+						class="theme-button-one" target="_blank">{{follow_dream.button_name}}</a>
+				
+			</div> <!-- /.container -->
+		</div> <!-- /.opacity -->
+	</div> <!-- /.feature-banner -->
+	{%endfor%}
+
+	<div class="service-style-one section-spacing">
+		<div class="container">
+			<div class="theme-title-one">
+				{%for service in services%}
+					<h6><a href="#" style="color:red;">{{service.title}}</a></h6>
+					<h2>{{service.heading}}</h2>
+					<p>{{service.description}}</p>
+				{%endfor%}
+			</div> <!-- /.theme-title-one -->
+			<div class="wrapper">
+				<div class="row">
+					{%for service_add in service_adds%}
+						<div class="col-xl-6 col-md-6 col-12">
+							<div class="single-service">
+								<div class="img-box"><img src="{{service_add.image.url}}" alt=""></div>
+								<div class="text">
+									<h5><a href="{{service_add.hyperlink}}">{{service_add.title}}</a></h5>
+									<p>{{service_add.description}}</p>
+	
+								</div> <!-- /.text -->
+							</div> <!-- /.single-service -->
+						</div> <!-- /.col- -->
+					{%endfor%}
+					<!-- /.col- -->
+				</div> <!-- /.row -->
+			</div> <!-- /.wrapper -->
+			<div class="contact-text">
+				{%for service in services%}
+					<h4>{{service.description_click}}</h4>
+					<h5><a href="#">{{service.email}}</a> (or) <a href="#">{{service.phone}}</a></h5>
+				{%endfor%}
+			</div>
+		</div> <!-- /.container -->
+	</div> <!-- /.service-style-one -->
+
+	<div class="testimonial-section section-spacing" style="background: url({{resource_images.image.url}}) no-repeat center center; background-size: cover; background-attachment: fixed; background-color: #707d9e;">
+		<div class="overlay">
+			<div class="container">
+				<div class="wrapper">
+					<div class="bg">
+						<div class="testimonial-slider">
+							{%for resource_description in resource_descriptions%}
+								<div class="item">
+
+									<button class="button-circular">
+										<h3 style="color: white;"><i class="{{resource_description.font_awesome_class_name}}"></i></h3>
+									</button>
+
+									<div class="name">
+										<h6>{{resource_description.title}}</h6>
+										<p>{{resource_description.description}}</p>
+									</div> <!-- /.name -->
+								</div> <!-- /.item -->
+                        	{%endfor%}
+						</div> <!-- /.testimonial-slider -->
+					</div> <!-- /.bg -->
+				</div> <!-- /.wrapper -->
+			</div> <!-- /.container -->
+		</div> <!-- /.overlay -->
+	</div> <!-- /.testimonial-section -->
+
+
+{%endblock%}

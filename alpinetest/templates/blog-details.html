@@ -1,0 +1,161 @@
+{%extends 'base.html'%}
+{%load static%}
+{% load embed_video_tags %}
+
+{%block content%}
+{%if single_blog.blog_top_image%}
+<div class="theme-inner-banner section-spacing" style="background: url({{single_blog.blog_top_image.url}}) no-repeat center center;   background-attachment: fixed; background-size: cover; background-color: #707d9e;">
+{%else%}
+	<div class="theme-inner-banner section-spacing" style="background: url({{topImage.image.url}}) no-repeat center center;   background-attachment: fixed; background-size: cover; background-color: #707d9e;">
+{%endif%}
+		<div class="overlay">
+			<div class="container">
+				<h2>&nbsp</h2>
+				<h2>&nbsp</h2>
+				<h2>{{single_blog.blog_top_description}}</h2>
+				<h2>&nbsp</h2>
+				<h2>&nbsp</h2>
+			</div> <!-- /.container -->
+		</div> <!-- /.overlay -->
+	</div> <!-- /.theme-inner-banner -->
+
+
+
+	<!-- 
+			=============================================
+				Our Blog
+			============================================== 
+			-->
+	<div class="our-blog section-spacing">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-9 col-lg-8 col-12">
+					<div class="post-wrapper blog-details">
+						<div class="single-blog">
+							<div class="image-box">
+								<img src="{{single_blog.image.url}}" alt="">
+								<div class="overlay"><a href="#" class="date">{{single_blog.modified_date}}</a></div>
+							</div> <!-- /.image-box -->
+							<div class="post-meta">
+								<h5 class="title">{{single_blog.title}}</h5>
+								<p>
+									{{single_blog.description |safe}}
+								</p>
+								<div class="mark-text">
+									<div class="row">
+										<div class="col-md-5">
+											{% if single_blog.quote_image.url != None %}
+											<img src="{{single_blog.quote_image.url}}" alt="">
+											{%endif%}
+										</div>
+										<div class="col-md-7">
+											<div class="inner-text">
+												<p>{{single_blog.quote_of_the_day}}</p>
+												<h6>- {{single_blog.author}} -</h6>
+											</div>
+										</div> <!-- /.col- -->
+									</div> <!-- /.row -->
+								</div> <!-- /.mark-text -->
+
+							</div> <!-- /.post-meta -->
+							<div class="share-option clearfix">
+
+								<ul class="social-icon float-right">
+									<li><i class="fa fa-share-alt" aria-hidden="true"></i> Follow us :</li>
+									<li><a href="#"><i class="fab fa-facebook-f"></i></i></a></li>
+									<li><a href="#"><i class="fab fa-instagram"></i></i></a></li>
+
+								</ul>
+							</div> <!-- /.share-option -->
+						</div> <!-- /.single-blog -->
+					</div> <!-- /.post-wrapper -->
+					<!-- ==================== Related Post ================= -->
+
+					<!-- ==================== Comment Area ================= -->
+
+					<!-- ==================== Comment Form ================= -->
+					<div class="inner-box comment-form">
+						<div class="theme-title-one">
+							<h2>POST A COMMENTS</h2>
+							{% include 'includes/alerts.html' %}
+
+						</div> <!-- /.theme-title-one -->
+						<form action="{%url 'blog_content' single_blog.slug %}" class="theme-form-one" method="POST">
+							{%csrf_token%}
+							<div class="row">
+								<div class="col-md-6 col-12"><input type="text" placeholder="Name" name="name"
+										maxlength="100" required></div>
+								<div class="col-md-6 col-12"><input type="text" placeholder="Phone" name="phone"
+										maxlength="15" required></div>
+								<div class="col-12"><input type="email" placeholder="Email" name="email" required></div>
+								<div class="col-12"><textarea placeholder="Comment" name="comment" maxlength="500"
+										required></textarea></div>
+							</div>
+							<button class="theme-button-one" type="submit">POST COMMENT</button>
+						</form>
+					</div> <!-- /.inner-box -->
+				</div>
+				<!-- ===================== Blog Sidebar ==================== -->
+				<div class="col-xl-3 col-lg-4 col-md-6 col-sm-8 col-12 blog-sidebar">
+
+					<div class="sidebar-container sidebar-categories">
+						<h5 class="title">Visas</h5>
+
+						<ul>
+							{%for visas in visa_cats%}
+							<li><a href="{{visas.get_url}}">{{visas.visa_title}}</a></li>
+							{%endfor%}
+						</ul>
+					</div> <!-- /.sidebar-categories -->
+					<!-- /.sidebar-recent-post -->
+
+					<div class="sidebar-container sidebar-recent-post">
+
+						<h5 class="title">Recent Posts</h5>
+						<ul>
+							{%for post in recent_post%}
+
+							<li class="clearfix">
+								<img src="{{post.image.url}}" alt="" class="float-left">
+								<div class="post float-left">
+									<a href="{{post.get_url}}">{{post.title}}</a>
+									<div class="date">{{post.created_date}}</div>
+								</div>
+							</li>
+							<br>
+							{%endfor%}
+
+						</ul>
+					</div> <!-- /.sidebar-recent-post -->
+				</div> <!-- /.col- -->
+
+			</div> <!-- /.row -->
+			<div class="inner-box">
+				{%video single_blog.youtube_video '100% x 641'%}
+
+			</div>
+			<div class="inner-box comment-area">
+				<div class="theme-title-one">
+					<h2>COMMENTS {{comment_count}}</h2>
+				</div> <!-- /.theme-title-one -->
+				{%for i in cmt%}
+				<div class="single-comment clearfix">
+					<img src="https://i.pinimg.com/originals/07/a5/72/07a5723295644be79473ff6dd554463b.png" alt=""
+						class="float-left">
+					<div class="comment float-left">
+						<h6>{{i.name}}</h6>
+						<p>{{i.comment}}</p>
+						<a href="#">{{i.created_date}}</a>
+					</div> <!-- /.comment -->
+				</div> <!-- /.single-comment -->
+				{%endfor%}
+			</div> <!-- /.inner-box -->
+		</div> <!-- /.container -->
+	</div> <!-- /.blog-details -->
+
+
+
+
+
+
+	{%endblock%}

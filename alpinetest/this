@@ -1,0 +1,10 @@
+#!/usr/bin/env expect 
+spawn python3 manage.py shell
+expect ">>>"
+send   "from django.contrib.contenttypes.models import ContentType\r"
+
+send   "ContentType.objects.all().delete()\r" 
+
+send "exit()\r"
+expect eof
+

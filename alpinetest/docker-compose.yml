@@ -1,0 +1,46 @@
+version: "3.1"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: ./web_service/Dockerfile
+    command: gunicorn --workers=3 visaAlliance2phase.wsgi:application --bind 0.0.0.0:8080
+    expose:
+      - 8080
+    volumes:
+      - ../persist/static/:/visaAlliance2phase/static/
+      - ../persist/media/:/visaAlliance2phase/media/
+      - ../persist/v2pstatic/:/visaAlliance2phase/visaAlliance2phase/static/
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13.0-alpine
+    expose:
+      - 5432
+    environment:
+      - POSTGRES_USER=visa_aa
+      - POSTGRES_PASSWORD=visa@123
+      - POSTGRES_DB=visa
+    volumes:
+      - db-data:/var/lib/postgresql/data/
+
+  nginx:
+    build:
+      context: ./nginx_service
+      dockerfile: Dockerfile
+    ports: 
+      - 8080:80
+    depends_on: 
+      - web
+    command: certbot --nginx -m anuppoudel45@gmail.com --agree-tos -d test.anuppoudel.codes --redirect
+    volumes:
+      -  ../persist/nginx_conf/:/etc/nginx/conf.d/
+      - ../persist/static/:/visaAlliance2phase/static/
+      - ../persist/letsencrypt:/etc/letsencrypt
+volumes:
+  db-data:
+
+
+

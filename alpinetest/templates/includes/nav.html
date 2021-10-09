@@ -1,0 +1,134 @@
+{% load static %}
+<header class="header-one">
+  
+        <div class="top-header" style="height:8rem;width: 100%; background-image: url('{{navFooter.top_nav_image.url}}');">
+            
+    
+            <div class="flags">
+                <a class="theme-button-one" href="{{navFooter.top_left_button_hyperlink}}" target="_blank"
+                    style="background-image: linear-gradient(to top right, #ff6866, #000000);"
+                    class="flag-content">{{navFooter.top_left_button_name}}</a>
+                <a class="theme-button-one" href="{{navFooter.top_right_button_hyperlink}}" target="_blank"
+                    class="flag-content">{{navFooter.top_right_button_name}}</a>
+                    <br>
+                    <div style="float: right; color: white;">
+                        <i class="fas fa-user"></i>
+                        {%if user.is_authenticated%}
+                            <a href="{%url 'dashboard'%}" style="color: white;">&nbsp Dashboard</a>
+                            <a>&nbsp/ &nbsp</a>
+                            <a href="{%url 'logout'%}" style="color: white;">Logout</a>
+                        {%else%}
+                            <a href="{%url 'login'%}" style="color: white;">&nbspLogin</a>
+                            <a>/</a>
+                            <a href="{%url 'register'%}" style="color: white;">Register</a>
+                        {%endif%}
+
+                    </div>
+                    
+            </div>
+            <div class="dasboard-login" style="float: right; color: white;">
+                <i class="fas fa-user"></i>
+                {%if user.is_authenticated%}
+                    <a href="{%url 'dashboard'%}" style="color: white;">&nbsp Dashboard</a>
+                    <a>&nbsp/ &nbsp</a>
+                    <a href="{%url 'logout'%}" style="color: white;">Logout</a>
+                {%else%}
+                    <a href="{%url 'login'%}" style="color: white;">&nbspLogin</a>
+                    <a>/</a>
+                    <a href="{%url 'register'%}" style="color: white;">Register</a>
+                {%endif%}
+                <br>
+                <a class="theme-button-one" href="{{navFooter.top_right_button_hyperlink}}" target="_blank"
+                class="flag-content">{{navFooter.top_right_button_name}}</a>
+            </div>
+            
+
+
+        
+
+        </div>
+
+<div class="mobile-top-header">
+    <img src="{{navFooter.mobile_view_top_image.url}}">
+    <br>
+    <div>
+        <center>
+            <i class="fas fa-user"></i>
+            {%if user.is_authenticated%}
+                <a href="{%url 'dashboard'%}" >&nbsp Dashboard</a>
+                <a>&nbsp/ &nbsp</a>
+                <a href="{%url 'logout'%}" >Logout</a>
+            {%else%}
+                <a href="{%url 'login'%}" >&nbspLogin</a>
+                <a>/</a>
+                <a href="{%url 'register'%}">Register</a>
+            {%endif%}
+            <br>
+            
+            <a class="theme-button-one" href="{{navFooter.top_right_button_hyperlink}}" target="_blank"
+            class="flag-content">{{navFooter.top_right_button_name}}</a>
+        </center>
+        
+    </div>
+    <br>
+</div>
+
+<div>
+
+    <div class="theme-menu-wrapper" >
+        <div class="container">
+            <div class="bg-wrapper clearfix">
+                <!-- ============== Menu Warpper ================ -->
+                <div class="menu-wrapper float-left">
+                    <nav id="mega-menu-holder" class="clearfix">
+                        <ul class="clearfix" >
+                            <li class="active"><a href="{%url 'home'%}" >Home</a>
+                                <!-- <ul class="dropdown">
+                                        <li><a href="index.html">Home version one</a></li>
+                                        <li><a href="inde">Home version two</a></li>
+                                    </ul> -->
+                            </li>
+                            <li><a href="{%url 'visa'%}">Visas</a></li>
+                            <li><a href="#">PAGES</a>
+                                <ul class="dropdown">
+                                    <li><a href="{%url 'blog'%}">Blogs</a></li>
+                                    <li><a href="{%url 'about'%}">About us</a></li>
+                                    
+                                   
+                                   
+                                </ul>
+                            </li>
+
+                            <li><a href="https://visaalliance.mmportal.cloud/assessment" target="_blank">Free Visa
+                                    Assessment</a>
+
+                            </li>
+
+                            <li><a href="https://visaalliance.agentcisapp.com/online-form/website-integration"
+                                    target="_blank">Study Enquiry</a></li>
+                            <li><a href="https://visaalliance.mmportal.cloud/assessment/enquiry/general-enquiry#nav-top"
+                                    target="_blank">Visa Enquiry</a></li>
+
+                        </ul>
+                    </nav> <!-- /#mega-menu-holder -->
+                </div> <!-- /.menu-wrapper -->
+
+                <div class="right-widget float-right" style="margin-right: 10px; margin-bottom: 8px;">
+                    <ul>
+
+                        <li class="social-icon">
+                            <ul>
+                                <li class="quotes" id="client-login"><a
+                                        href="https://visaalliance.mmportal.cloud/Account/Login"
+                                        target="_blank">CLIENT LOGIN</a></li>
+
+                            </ul>
+                        </li>
+
+
+                    </ul>
+                </div> <!-- /.right-widget -->
+            </div> <!-- /.bg-wrapper -->
+        </div> <!-- /.container -->
+    </div> <!-- /.theme-menu-wrapper -->
+</header>
