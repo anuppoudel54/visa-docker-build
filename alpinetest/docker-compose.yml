@@ -3,9 +3,9 @@ version: "3.3"
 services:
   web:
     image: visa_web
-      build:
-        context: .
-        dockerfile: ./web_service/Dockerfile
+    build:
+      context: .
+      dockerfile: ./web_service/Dockerfile
     command: gunicorn --workers=3 visaAlliance2phase.wsgi:application --bind 0.0.0.0:8080
     expose:
       - 8080
@@ -28,8 +28,8 @@ services:
       - db-data:/var/lib/postgresql/data/
 
   nginx:
+    image: reverse_proxy
     build:
-      image: reverse_proxy
       context: ./nginx_service
       dockerfile: Dockerfile
     ports:
