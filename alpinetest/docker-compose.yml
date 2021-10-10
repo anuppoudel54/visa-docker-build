@@ -10,9 +10,9 @@ services:
     expose:
       - 8080
     volumes:
-      - /home/ubuntu/deploy/static/:/visaAlliance2phase/static/
-      - /home/ubuntu/deploy/media/:/visaAlliance2phase/media/
-      - /home/ubuntu/deploy/v2pstatic/:/visaAlliance2phase/visaAlliance2phase/static/
+      - /home/ubuntu/deploy/persist/static/:/visaAlliance2phase/static/
+      - /home/ubuntu/deploy/persist/media/:/visaAlliance2phase/media/
+      - /home/ubuntu/deploy/persist/v2pstatic/:/visaAlliance2phase/visaAlliance2phase/static/
     depends_on:
       - db
 
@@ -39,9 +39,9 @@ services:
     depends_on: 
       - web
     volumes:
-      - /home/ubuntu/deploy/nginx_conf/:/etc/nginx/conf.d/
-      - /home/ubuntu/deploy/static/:/visaAlliance2phase/static/
-      - /home/ubuntu/deploy/letsencrypt:/etc/letsencrypt
+      - /home/ubuntu/deploy/persist/nginx_conf/:/etc/nginx/conf.d/
+      - /home/ubuntu/deploy/persist/static/:/visaAlliance2phase/static/
+      - /home/ubuntu/deploy/persist/letsencrypt:/etc/letsencrypt
 volumes:
   db-data:
 
