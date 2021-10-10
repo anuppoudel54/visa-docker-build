@@ -2,9 +2,8 @@ upstream visaAlliance2phase {
     server web:8080;
 }
 
-server {
-   
-    server_name test.anuppoudel.codes; 
+server {  
+    server_name test.anuppoudel.codes;
     location / {
         proxy_pass http://visaAlliance2phase;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -12,19 +11,22 @@ server {
         proxy_redirect off;
     }
 
-
-location /static/{
+   location  /static/{
 
                 alias /visaAlliance2phase/static/;
 } 
 
-   
+
+
+
 
     listen 443 ssl; # managed by Certbot
     ssl_certificate /etc/letsencrypt/live/test.anuppoudel.codes/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/test.anuppoudel.codes/privkey.pem; # managed by Certbot
     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+
 
 }
 
@@ -35,9 +37,9 @@ server {
     } # managed by Certbot
 
 
-   
+
+    listen 80;  
     server_name test.anuppoudel.codes;
-    listen 80;
     return 404; # managed by Certbot
 
 
