@@ -9,7 +9,8 @@ echo " installing ssl"
 #echo "certs exist"
 #else
 #echo "cerst not installed, installing"
-certbot --nginx -m anuppoudel45@gmail.com --agree-tos -d test.anuppoudel.codes --redirect --non-interactive
+#certbot --nginx -m anuppoudel45@gmail.com --agree-tos -d test.anuppoudel.codes --redirect --non-interactive
 
+echo "DONE"
 #fi
 exec "$@"
