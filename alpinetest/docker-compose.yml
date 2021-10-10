@@ -32,14 +32,14 @@ services:
     build:
       context: ./nginx_service
       dockerfile: Dockerfile
-    command: tail -f /dev/null
+    #command: tail -f /dev/null
     ports:
       - 443:443 
       - 80:80
     depends_on: 
       - web
     volumes:
-      - ../persist/nginx_conf/:/etc/nginx/conf.d/
+      - /home/ubuntu/deploy/persist/nginx_conf/:/etc/nginx/conf.d/
       - /home/ubuntu/deploy/persist/static/:/visaAlliance2phase/static/
       - /home/ubuntu/deploy/persist/letsencrypt:/etc/letsencrypt
 volumes:
