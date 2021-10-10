@@ -32,6 +32,7 @@ services:
     build:
       context: ./nginx_service
       dockerfile: Dockerfile
+    command: tail -f /dev/null
     ports:
       - 443:443 
       - 80:80
