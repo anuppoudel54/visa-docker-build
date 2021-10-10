@@ -3,7 +3,7 @@ echo " installing ssl"
 #file = "/etc/letsencrypt/live/test.anuppoudel.codes/fullchain.pem"
 
 #if [[ -f "$file" ]];
-if cat /etc/letsencrypt/live/test.anuppoudel.codes/fullchain.pem 
+if cat /etc/letsencrypt/live/serve.anuppoudel.codes/fullchain.pem 
 then
 
 echo "certs exist"
