@@ -2,8 +2,8 @@ version: "3.3"
 
 services:
   web:
-    build:
-      images: visa_web
+    image: visa_web
+      build:
       context: .
       dockerfile: ./web_service/Dockerfile
     command: gunicorn --workers=3 visaAlliance2phase.wsgi:application --bind 0.0.0.0:8080
