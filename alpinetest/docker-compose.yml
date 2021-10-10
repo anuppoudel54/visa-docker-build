@@ -3,6 +3,7 @@ version: "3.1"
 services:
   web:
     build:
+      image: visa_web
       context: .
       dockerfile: ./web_service/Dockerfile
     command: gunicorn --workers=3 visaAlliance2phase.wsgi:application --bind 0.0.0.0:8080
@@ -27,7 +28,7 @@ services:
       - db-data:/var/lib/postgresql/data/
 
   nginx:
-    tty: true
+    iamge: reverse_proxy
     build:
       context: ./nginx_service
       dockerfile: Dockerfile
@@ -36,7 +37,6 @@ services:
       - 80:80
     depends_on: 
       - web
-   # command: certbot --nginx -m anuppoudel45@gmail.com --agree-tos -d test.anuppoudel.codes --redirect
     volumes:
       -  ../persist/nginx_conf/:/etc/nginx/conf.d/
       - ../persist/static/:/visaAlliance2phase/static/
